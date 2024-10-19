@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -15,6 +16,8 @@ public class AIMove : MonoBehaviour
     public Vector2 nextDirection { get; private set; }
     public Vector3 startingPosition { get; private set; }
 
+    Transform player;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,6 +27,7 @@ public class AIMove : MonoBehaviour
     private void Start()
     {
         ResetState();
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     public void ResetState()
@@ -38,6 +42,8 @@ public class AIMove : MonoBehaviour
 
     private void Update()
     {
+        
+        
         // Try to move in the next direction while it's queued to make movements
         // more responsive
         if (nextDirection != Vector2.zero)
@@ -77,6 +83,6 @@ public class AIMove : MonoBehaviour
         return hit.collider != null;
     }
 
-
+    
 
 }
