@@ -36,5 +36,4 @@ public class PlayerMove : MonoBehaviour
 			Mathf.Sign(velUpdate.x) * playerSprite.localScale.x,
 			Mathf.Sign(velUpdate.y) * playerSprite.localScale.y);
 	}
-
 }
