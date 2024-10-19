@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Credits
+  - Enemy
   layers:
   - Default
   - TransparentFX
