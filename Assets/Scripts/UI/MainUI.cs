@@ -36,5 +36,6 @@ public class MainMenus : MonoBehaviour
 	{
 
 		Debug.Log("Quit Button Pressed");
+		SceneLoader.QuitGame();
 	}
 }
