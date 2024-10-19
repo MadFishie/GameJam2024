@@ -9,7 +9,7 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField] float speed;
 
-    Vector2[] directions = { Vector2.up, Vector2.right, Vector2.down, Vector2.left };
+    Vector2[] directions = { Vector2.up, Vector2.right, Vector2.down, Vector2.left};
 
     int directionIndex = 1;
 
@@ -44,16 +44,25 @@ public class EnemyAI : MonoBehaviour
 
         RaycastHit2D hit2D = Physics2D.Raycast(transform.position, currentDir, rayDistance, rayLayer);
         Vector3 endpoint = currentDir * rayDistance;
-        //Debug.DrawLine(transform.position, transform.position + endpoint, Color.green);
+        Debug.DrawLine(transform.position, transform.position + endpoint, Color.green);
+
+
 
         if (hit2D.collider != null)
         {
+          
            
             
             if (hit2D.collider.gameObject.CompareTag("Wall"))
             {
+                var choice= Random.RandomRange(0, 6);
+                
+                if(choice>3) {PlayerChase=true; return; }
+
                 ChangeDirection();
-                //Debug.Log("Hit Wall");
+
+                
+                Debug.Log("Hit Wall");
 
             }
 
@@ -64,6 +73,7 @@ public class EnemyAI : MonoBehaviour
             }
 
         }
+   
 
         if (PlayerChase)
         {
@@ -75,26 +85,46 @@ public class EnemyAI : MonoBehaviour
 
     private void PlayerChasing()
     {
-        var calcPos = PlayerPos.position - transform.position;
-
-
-        if (dirUpdate >=uptDirEvery) 
+        try 
         {
-            uptDirEvery = 0;
-            currentDir = new Vector2(Mathf.Clamp(calcPos.x, -1, 1), Mathf.Clamp(calcPos.y, -1, 1));
+            var calcPos = PlayerPos.position - transform.position;
 
 
+            if (dirUpdate >= uptDirEvery)
+            {
+                uptDirEvery = 0;
+                RaycastHit2D hit2D = Physics2D.Raycast(transform.position, currentDir, rayDistance, rayLayer);
+                Vector3 endpoint = currentDir * rayDistance;
+                Debug.DrawLine(transform.position, transform.position + endpoint, Color.green);
+                if (hit2D.collider.gameObject.CompareTag("Wall"))
+                {
+                    ChangeDirection();
+
+                }
+                else
+                {
+                    currentDir = new Vector2(Mathf.Clamp(calcPos.x, -1, 1), Mathf.Clamp(calcPos.y, -1, 1));
+
+
+                }
+
+            }
+
+            chaseTimer += Time.deltaTime;
+            dirUpdate += Time.deltaTime;
+
+
+            if (chaseTimer >= intrestTime)
+            {
+                chaseTimer = 0;
+                PlayerChase = false;
+
+                currentDir = directions[directionIndex];
+            }
         }
-
-        chaseTimer += Time.deltaTime;
-        dirUpdate += Time.deltaTime;
-
-
-        if (chaseTimer >= intrestTime)
+        catch 
         {
-            chaseTimer = 0;
-            PlayerChase = false;
-            currentDir = directions[directionIndex];
+        
         }
         
     

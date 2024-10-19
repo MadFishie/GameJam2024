@@ -189,7 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   HitDetect: {fileID: 6439737339883805039}
-  playerSprite: {fileID: 0}
+  playerSprite: {fileID: 5852803845980741133}
 --- !u!1001 &5050364897367238611
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ public class PlayerSkill:MonoBehaviour
     [SerializeField] BoxCollider2D PlayerBoxCollider;
     public bool Invis = false;
     [SerializeField] TrailRenderer TrailRend;
+    [SerializeField] CircleCollider2D PowerUp;
 
 
 
@@ -22,16 +24,12 @@ public class PlayerSkill:MonoBehaviour
         player = GetComponent<PlayerMove>();
         PlayerCollider = player.GetComponent<CircleCollider2D>();
         PlayerBoxCollider = player.GetComponentInChildren<BoxCollider2D>();
+        PowerUp = GetComponent<CircleCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space")){
-            OnBecameInvisible();
-            Invis =!Invis;
-            
-        }
         
     }
 
@@ -53,4 +51,15 @@ public class PlayerSkill:MonoBehaviour
             TrailRend.emitting = false;
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "PowerUp") {
+
+            OnBecameInvisible();
+            Invis = !Invis;
+
+        }
+    }
+
 }
