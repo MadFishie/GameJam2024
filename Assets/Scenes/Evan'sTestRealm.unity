@@ -2986,6 +2986,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1368445046}
   m_SourcePrefab: {fileID: 100100000, guid: b07da39418ded8a4192e89f430ce90ee, type: 3}
+--- !u!96 &975860404 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 6885802348078161798, guid: b07da39418ded8a4192e89f430ce90ee, type: 3}
+  m_PrefabInstance: {fileID: 969827823}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &986893876
 GameObject:
   m_ObjectHideFlags: 0
@@ -4305,6 +4310,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSprite: {fileID: 749313819}
   PlayerBoxCollider: {fileID: 1721572561}
+  Invis: 0
+  TrailRend: {fileID: 975860404}
 --- !u!1 &1402369564
 GameObject:
   m_ObjectHideFlags: 0
