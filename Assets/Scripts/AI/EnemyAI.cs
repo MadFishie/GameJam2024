@@ -44,7 +44,7 @@ public class EnemyAI : MonoBehaviour
 
         RaycastHit2D hit2D = Physics2D.Raycast(transform.position, currentDir, rayDistance, rayLayer);
         Vector3 endpoint = currentDir * rayDistance;
-        //Debug.DrawLine(transform.position, transform.position + endpoint, Color.green);
+        Debug.DrawLine(transform.position, transform.position + endpoint, Color.green);
 
 
 
@@ -60,12 +60,9 @@ public class EnemyAI : MonoBehaviour
                 if(choice>3) {PlayerChase=true; return; }
 
                 ChangeDirection();
-<<<<<<< Updated upstream
-                //Debug.Log("Hit Wall");
-=======
+
                 
                 Debug.Log("Hit Wall");
->>>>>>> Stashed changes
 
             }
 
