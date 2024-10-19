@@ -21,7 +21,7 @@ public class LightPaulse : MonoBehaviour
         {
             LightIntesity += PaulseSpeed;
             this.GetComponent<Light2D>().intensity = LightIntesity;
-            if (LightIntesity == MaxIntesity)
+            if (LightIntesity >= MaxIntesity)
             {
                 Waxing = false;
             }
@@ -29,8 +29,8 @@ public class LightPaulse : MonoBehaviour
         else
         {
             LightIntesity -= PaulseSpeed;
-            this.GetComponent<Light>().intensity = LightIntesity;
-            if (LightIntesity == MinIntesity)
+            this.GetComponent<Light2D>().intensity = LightIntesity;
+            if (LightIntesity <= MinIntesity)
             {
                 Waxing = true;
             }
