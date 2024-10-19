@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwitchMode : MonoBehaviour
 {
-    public bool IsAggressor = false;
+    public static bool IsAggressor = false;
     private int AggressorCounter;
     [SerializeField] private int MinRange;
     [SerializeField] private int MaxRange;
