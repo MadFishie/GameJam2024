@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -24,12 +25,12 @@ public class PlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+
         var velUpdate = new Vector2(Input.GetAxisRaw("Horizontal") * speed, Input.GetAxisRaw("Vertical") * speed);
         rb.velocity = velUpdate;
         if (velUpdate == Vector2.zero) {return; }
-        playerSprite.localScale=new Vector3(Mathf.Sign(velUpdate.x), Mathf.Sign(velUpdate.y));
-        
-
-    }
+		playerSprite.localScale=new Vector3(Mathf.Sign(velUpdate.x), Mathf.Sign(velUpdate.y));
+	}
 
 }

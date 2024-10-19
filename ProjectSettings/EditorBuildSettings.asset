@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Jo Time.unity
+    guid: 0d78efd665d3d2d46a22ebb11d5fbf1c
+  - enabled: 1
+    path: Assets/Scenes/Brett's Fidget Toy.unity
+    guid: 6adeb99ec1ba08b4c82782faef29e7da
   m_configObjects: {}
