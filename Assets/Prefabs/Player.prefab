@@ -385,6 +385,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e5740a3e8891634e8d6403c50ceb38e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 4
   HitDetect: {fileID: 6439737339883805039}
   playerSprite: {fileID: 5805406708707206697}

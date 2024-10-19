@@ -17,37 +17,92 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float rayDistance;
     [SerializeField] LayerMask rayLayer;
 
+    Transform PlayerPos;
+    bool PlayerChase=false;
+
+    [SerializeField] float intrestTime = 2f;
+    float chaseTimer = 0;
+
+    float dirUpdate = 0;
+    [SerializeField] float uptDirEvery = .5f; 
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
     }
 
     void Start()
     {
         currentDir = directions[directionIndex];
+        PlayerPos = GameObject.FindWithTag("Player").transform;
     }
 
     void Update()
     {
+
         RaycastHit2D hit2D = Physics2D.Raycast(transform.position, currentDir, rayDistance, rayLayer);
         Vector3 endpoint = currentDir * rayDistance;
         Debug.DrawLine(transform.position, transform.position + endpoint, Color.green);
 
         if (hit2D.collider != null)
         {
+           
+            
             if (hit2D.collider.gameObject.CompareTag("Wall"))
             {
                 ChangeDirection();
                 Debug.Log("Hit Wall");
+
             }
 
-            if (hit2D.collider.gameObject.CompareTag("Player"))
+            else if (hit2D.collider.gameObject.CompareTag("Player"))
             {
+                PlayerChase = true;
 
-                print("Found");
             }
+
         }
+
+        if (PlayerChase)
+        {
+            PlayerChasing();
+        }
+
+
     }
+
+    private void PlayerChasing()
+    {
+        var calcPos = PlayerPos.position - transform.position;
+
+
+        if (dirUpdate >=uptDirEvery) 
+        {
+            uptDirEvery = 0;
+            currentDir = new Vector2(Mathf.Clamp(calcPos.x, -1, 1), Mathf.Clamp(calcPos.y, -1, 1));
+
+
+        }
+
+        chaseTimer += Time.deltaTime;
+        dirUpdate += Time.deltaTime;
+
+
+        if (chaseTimer >= intrestTime)
+        {
+            chaseTimer = 0;
+            PlayerChase = false;
+            currentDir = directions[directionIndex];
+        }
+        
+    
+    
+    }
+
+
+
 
 
     void ChangeDirection()
