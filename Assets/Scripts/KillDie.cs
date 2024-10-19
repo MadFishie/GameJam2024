@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class KillDie : MonoBehaviour
-{
-    
-    // Start is called before the first frame update
-    void Start()
+{ 
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
+        if (collision.tag == "Enemy")
+        {
+            if (SwitchMode.IsAggressor == true)
+            {
+                Destroy(collision);
+            }
+            else
+            {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            }
+        }
     }
 }
