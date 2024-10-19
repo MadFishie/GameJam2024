@@ -44,7 +44,7 @@ public class EnemyAI : MonoBehaviour
 
         RaycastHit2D hit2D = Physics2D.Raycast(transform.position, currentDir, rayDistance, rayLayer);
         Vector3 endpoint = currentDir * rayDistance;
-        Debug.DrawLine(transform.position, transform.position + endpoint, Color.green);
+        //Debug.DrawLine(transform.position, transform.position + endpoint, Color.green);
 
         if (hit2D.collider != null)
         {
@@ -53,7 +53,7 @@ public class EnemyAI : MonoBehaviour
             if (hit2D.collider.gameObject.CompareTag("Wall"))
             {
                 ChangeDirection();
-                Debug.Log("Hit Wall");
+                //Debug.Log("Hit Wall");
 
             }
 
