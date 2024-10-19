@@ -13,7 +13,6 @@ public class PlayerSkill:MonoBehaviour
     private static CircleCollider2D PlayerCollider;
     [SerializeField] BoxCollider2D PlayerBoxCollider;
     public bool Invis = false;
-    [SerializeField] TrailRenderer TrailRend;
     [SerializeField] CircleCollider2D PowerUp;
 
 
@@ -40,7 +39,7 @@ public class PlayerSkill:MonoBehaviour
             PlayerSprite.color = new Color(188, 0, 255, 255);
             PlayerCollider.radius = 0;
             PlayerBoxCollider.isTrigger = true;
-            TrailRend.emitting = true;
+            
 
         }
         else
@@ -48,7 +47,6 @@ public class PlayerSkill:MonoBehaviour
             PlayerSprite.color = new Color(188, 0, 255, 0.25f);
             PlayerCollider.radius = 0;
             PlayerBoxCollider.isTrigger = false;
-            TrailRend.emitting = false;
         }
     }
 
