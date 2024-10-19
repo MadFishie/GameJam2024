@@ -14,12 +14,16 @@ public class SwitchMode : MonoBehaviour
     private int TimerSpice;
     [SerializeField] public static int Timer;
     [SerializeField] Text timerText;
+    [SerializeField] AudioSource Music;
 
 
     // Start is called before the first frame update
     void Start()
     {
         AggressorCounter = Random.Range(MinRange, MaxRange);
+        Music.volume = .5f;
+        Music.pitch = .6f;
+        Music.spatialBlend = .75f;
         StartCoroutine("AggressorCountDown");
     }
 
@@ -34,12 +38,20 @@ public class SwitchMode : MonoBehaviour
                 timerText.text = $"Time: {Timer.ToString()}";
                 //Debug.Log(Timer);
             }
-            if (AggressorTimeRunning == 0)
+            if (KillDie.EnemyCount != 0)
             {
-                IsAggressor = false;
-                //Debug.Log("Passive");
-                StartCoroutine("AggressorCountDown");
+                if (AggressorTimeRunning == 0)
+                {
+                    timerText.text = null;
+                    Music.volume = .5f;
+                    Music.pitch = .6f;
+                    Music.spatialBlend = .75f;
+                    IsAggressor = false;
+                    //Debug.Log("Passive");
+                    StartCoroutine("AggressorCountDown");
+                }
             }
+            else { timerText.text = null; }
         }
     }
 
@@ -52,6 +64,9 @@ public class SwitchMode : MonoBehaviour
         TimerSpice = Random.Range(30, 75);
         AggressorTimeRunning = AggressorTimeStart * TimerSpice;
         Timer = AggressorTimeStart;
+        Music.volume = .75f;
+        Music.pitch = 1.1f;
+        Music.spatialBlend = 1f;
         StopAllCoroutines();
     }
 }
