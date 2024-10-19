@@ -6,23 +6,11 @@ using UnityEngine.UI;
 public class MainMenus : MonoBehaviour
 {
 
-	Canvas creditsCanvas;
+	[SerializeField] Canvas creditsCanvas;
 	
     // Start is called before the first frame update
     void Start()
     {
-
-		Canvas[] canvasList = FindObjectsByType<Canvas>(FindObjectsSortMode.None);
-		foreach(Canvas i in canvasList)
-		{
-
-			if(i.name == "CreditsUI")
-			{
-
-				creditsCanvas = i;
-			}
-		}
-		Debug.Log(creditsCanvas);
     }
 
     // Update is called once per frame
