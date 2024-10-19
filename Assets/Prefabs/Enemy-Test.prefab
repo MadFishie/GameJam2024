@@ -135,7 +135,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d9619a2d554d03b4da876ead6c116f04, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -158,12 +158,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9117bee103f76048ab5b22f01313a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 3.2
   currentDir: {x: 0, y: 0}
-  rayDistance: 0.3
+  rayDistance: 1
   rayLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
+  intrestTime: 10
+  uptDirEvery: 0.5
 --- !u!58 &3048024856907128101
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -173,7 +175,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 7975305105252459293}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d9619a2d554d03b4da876ead6c116f04, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 64
