@@ -32,12 +32,12 @@ public class SwitchMode : MonoBehaviour
             { 
                 Timer -= 1;
                 timerText.text = $"Time: {Timer.ToString()}";
-                Debug.Log(Timer);
+                //Debug.Log(Timer);
             }
             if (AggressorTimeRunning == 0)
             {
                 IsAggressor = false;
-                Debug.Log("Passive");
+                //Debug.Log("Passive");
                 StartCoroutine("AggressorCountDown");
             }
         }
@@ -46,7 +46,7 @@ public class SwitchMode : MonoBehaviour
     IEnumerator AggressorCountDown() 
     {
         yield return new WaitForSeconds(AggressorCounter);
-        Debug.Log("Aggressive");
+        //Debug.Log("Aggressive");
         AggressorCounter = Random.Range(MinRange, MaxRange);
         IsAggressor = true;
         TimerSpice = Random.Range(30, 75);

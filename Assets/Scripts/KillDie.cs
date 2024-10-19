@@ -16,7 +16,7 @@ public class KillDie : MonoBehaviour
             }
             else
             {
-                Debug.Log("Died");
+                //Debug.Log("Died");
             }
         }
     }
