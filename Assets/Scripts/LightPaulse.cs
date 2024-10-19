@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class LightPaulse : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class LightPaulse : MonoBehaviour
         if(Waxing == true)
         {
             LightIntesity += PaulseSpeed;
-            this.GetComponent<Light>().intensity = LightIntesity;
+            this.GetComponent<Light2D>().intensity = LightIntesity;
             if (LightIntesity == MaxIntesity)
             {
                 Waxing = false;
