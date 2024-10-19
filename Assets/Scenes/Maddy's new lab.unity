@@ -2100,6 +2100,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &568161886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 568161887}
+  m_Layer: 0
+  m_Name: New FabrikSolver2D_Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &568161887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568161886}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.04194515, y: 0.118787885, z: 0}
+  m_LocalScale: {x: 23.502867, y: 23.502867, z: 2.3502865}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1677402452}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &606123159
 GameObject:
   m_ObjectHideFlags: 0
@@ -9714,6 +9745,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1677402451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1677402452}
+  m_Layer: 0
+  m_Name: New FabrikSolver2D
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1677402452
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677402451}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 568161887}
+  m_Father: {fileID: 6043603424864649403}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1705145431
 GameObject:
   m_ObjectHideFlags: 0
@@ -11430,6 +11493,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 538332135426266451, guid: b07da39418ded8a4192e89f430ce90ee, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1052910586}
+    - targetCorrespondingSourceObject: {fileID: 5852803845980741133, guid: b07da39418ded8a4192e89f430ce90ee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1677402452}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7528722450473632472, guid: b07da39418ded8a4192e89f430ce90ee, type: 3}
       insertIndex: -1
@@ -11443,10 +11509,23 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7528722450473632472, guid: b07da39418ded8a4192e89f430ce90ee, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6043603424864649412}
+    - targetCorrespondingSourceObject: {fileID: 4751666778494699118, guid: b07da39418ded8a4192e89f430ce90ee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6043603424864649406}
   m_SourcePrefab: {fileID: 100100000, guid: b07da39418ded8a4192e89f430ce90ee, type: 3}
 --- !u!1 &6043603424864649402 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7528722450473632472, guid: b07da39418ded8a4192e89f430ce90ee, type: 3}
+  m_PrefabInstance: {fileID: 6043603424864649401}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6043603424864649403 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5852803845980741133, guid: b07da39418ded8a4192e89f430ce90ee, type: 3}
+  m_PrefabInstance: {fileID: 6043603424864649401}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6043603424864649404 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4751666778494699118, guid: b07da39418ded8a4192e89f430ce90ee, type: 3}
   m_PrefabInstance: {fileID: 6043603424864649401}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &6043603424864649405
@@ -11466,6 +11545,21 @@ MonoBehaviour:
   AggressorTimeStart: 20
   timerText: {fileID: 27707742}
   Music: {fileID: 1141751829}
+--- !u!114 &6043603424864649406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6043603424864649404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 097b551f2844b054290f18a39bf892e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Solvers: []
+  m_Weight: 1
+  m_SolverEditorData: []
 --- !u!114 &6043603424864649410
 MonoBehaviour:
   m_ObjectHideFlags: 0
