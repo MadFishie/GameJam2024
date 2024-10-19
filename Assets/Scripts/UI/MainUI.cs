@@ -23,6 +23,7 @@ public class MainMenus : MonoBehaviour
 	{
 
 		Debug.Log("Play Button Pressed");
+		SceneLoader.loadScenebyName("Scenes/Brett's Fidget Toy");
 	}
 	public void onCreditsButton_Pressed()
 	{
