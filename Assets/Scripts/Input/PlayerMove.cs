@@ -11,7 +11,7 @@ public class PlayerMove : MonoBehaviour
 {
     Rigidbody2D rb;
     [Header("Toggle Vals")]
-    [SerializeField] float speed = 7f;
+    public float speed = 7f;
     [Header("Reference Vals")]
     [SerializeField]BoxCollider2D HitDetect;
     [SerializeField] Transform playerSprite;
