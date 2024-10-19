@@ -6737,9 +6737,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy-Test
       objectReference: {fileID: 0}
+    - target: {fileID: 7975305105252459293, guid: 84e6034bf276fd64681e203e6dacf23f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8834694392265638673, guid: 84e6034bf276fd64681e203e6dacf23f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.85
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 8834694392265638673, guid: 84e6034bf276fd64681e203e6dacf23f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6747,7 +6751,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8834694392265638673, guid: 84e6034bf276fd64681e203e6dacf23f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.112989195
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8834694392265638673, guid: 84e6034bf276fd64681e203e6dacf23f, type: 3}
       propertyPath: m_LocalRotation.w
