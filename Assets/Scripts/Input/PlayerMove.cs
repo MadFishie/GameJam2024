@@ -5,6 +5,8 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(CircleCollider2D))]
+[RequireComponent(typeof(Animator))]
+
 
 
 public class PlayerMove : MonoBehaviour
@@ -16,12 +18,14 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]BoxCollider2D HitDetect;
     [SerializeField] Transform playerSprite;
     [SerializeField] float RotSpeed = 3f;
+     Animator animator;
     
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         HitDetect = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -36,7 +40,10 @@ public class PlayerMove : MonoBehaviour
             Quaternion targetRot = Quaternion.LookRotation(transform.forward, velUpdate);
             Quaternion rot = Quaternion.RotateTowards(transform.rotation, targetRot, RotSpeed);
             playerSprite.rotation = rot;
+
         }
+
+        animator.SetBool("IsMoving", velUpdate != Vector2.zero);
 
 	}
 }

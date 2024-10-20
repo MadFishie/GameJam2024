@@ -25,6 +25,7 @@ public class SwitchMode : MonoBehaviour
         Music.pitch = .6f;
         Music.spatialBlend = .75f;
         StartCoroutine("AggressorCountDown");
+        Debug.Log(this.gameObject);
     }
 
     private void FixedUpdate()
@@ -32,22 +33,24 @@ public class SwitchMode : MonoBehaviour
         if (IsAggressor == true)
         {
             AggressorTimeRunning -= 1;
+            //Debug.Log(TimerSpice);
             if (AggressorTimeRunning % TimerSpice == 0) 
             { 
                 Timer -= 1;
-                timerText.text = $"Time: {Timer.ToString()}";
-                //Debug.Log(Timer);
+                timerText.text = $"Nom Nom Time: {Timer.ToString()}";
+                Debug.Log(Timer);
             }
             if (KillDie.EnemyCount != 0)
             {
-                if (AggressorTimeRunning == 0)
+                
+                if (AggressorTimeRunning <= 0)
                 {
                     timerText.text = null;
                     Music.volume = .65f;
                     Music.pitch = .6f;
                     Music.spatialBlend = .75f;
                     IsAggressor = false;
-                    //Debug.Log("Passive");
+                    Debug.Log("Passive");
                     StartCoroutine("AggressorCountDown");
                 }
             }
@@ -58,10 +61,11 @@ public class SwitchMode : MonoBehaviour
     IEnumerator AggressorCountDown() 
     {
         yield return new WaitForSeconds(AggressorCounter);
-        //Debug.Log("Aggressive");
+        Debug.Log("Aggressive");
         AggressorCounter = Random.Range(MinRange, MaxRange);
         IsAggressor = true;
         TimerSpice = Random.Range(30, 75);
+        //Debug.Log(TimerSpice);
         AggressorTimeRunning = AggressorTimeStart * TimerSpice;
         Timer = AggressorTimeStart;
         Music.volume = 1;
