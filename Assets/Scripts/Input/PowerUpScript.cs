@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PowerUpScript : MonoBehaviour
 
 {
 
+    CircleCollider2D circleCollider;
     enum PowerBuffs
     {
         BUFF_SPEED,
-        BUFF_HIDE,
+
         BUFF_INVINC
     }
     public PlayerMove script;
@@ -22,9 +24,12 @@ public class PowerUpScript : MonoBehaviour
     public float targetTime = 5.0f;
     
     float realTime = 0.0f;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        circleCollider = GetComponent<CircleCollider2D>();
       
     }
 
@@ -48,21 +53,24 @@ public class PowerUpScript : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            RandomPower = (PowerBuffs) Random.RandomRange(1,3);
+            RandomPower = (PowerBuffs) Random.RandomRange(0,1);
             Debug.Log("PlayerHit");
             Debug.Log(RandomPower);
         }
         if(RandomPower == PowerBuffs.BUFF_SPEED) {
             script.speed = 10f;
         }
-        if(RandomPower == PowerBuffs.BUFF_HIDE)
+        if(RandomPower == PowerBuffs.BUFF_INVINC)
         {
-            
+            circleCollider.enabled = false;
         }
     }
 
     void RemoveBuff()
     {
+        script.speed = 5.0f;
+        circleCollider.enabled = true;
+
 
 
     }
