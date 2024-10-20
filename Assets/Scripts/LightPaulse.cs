@@ -11,10 +11,7 @@ public class LightPaulse : MonoBehaviour
     [SerializeField] private float MaxIntesity;
     [SerializeField] private float PaulseSpeed;
 
-    private void Start()
-    {      
-        PaulseSpeed = PaulseSpeed / 60;
-    }
+
     void FixedUpdate()
     {
         if(Waxing == true)

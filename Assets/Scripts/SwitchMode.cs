@@ -50,6 +50,14 @@ public class SwitchMode : MonoBehaviour
                     Music.pitch = .6f;
                     Music.spatialBlend = .75f;
                     IsAggressor = false;
+                    foreach (GameObject spikes in GameObject.FindGameObjectsWithTag("Spikes")) 
+                    {
+                        var renderer = spikes.GetComponent<SpriteRenderer>();
+                        var tempColor = renderer.color;
+                        tempColor.a = 0f;
+                        renderer.color = tempColor;
+                    
+                    }
                     Debug.Log("Passive");
                     StartCoroutine("AggressorCountDown");
                 }
@@ -71,6 +79,14 @@ public class SwitchMode : MonoBehaviour
         Music.volume = 1;
         Music.pitch = 1.1f;
         Music.spatialBlend = 1f;
+        foreach(GameObject spikes in GameObject.FindGameObjectsWithTag("Spikes"))
+        {
+            var renderer = spikes.GetComponent<SpriteRenderer>();
+            var tempColor = renderer.color;
+            tempColor.a = 1f;
+            renderer.color = tempColor;
+
+        }
         StopAllCoroutines();
     }
 }

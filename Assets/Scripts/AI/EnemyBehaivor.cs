@@ -18,6 +18,9 @@ public class EnemyBehaivor : MonoBehaviour
 
     Vector2 scatterCurrentEndPoint;
 
+    [SerializeField]Transform EnemySprite;
+    [SerializeField] float RotSpeed = 180f;
+
 
     void Start()
     {
@@ -50,10 +53,12 @@ public class EnemyBehaivor : MonoBehaviour
             else { currentState = enemyState.Chase; }
             StateTimer = 0;
         }
-        
+
+        Quaternion targetRot = Quaternion.LookRotation(transform.forward, agent.velocity);
+        Quaternion rot = Quaternion.RotateTowards(transform.rotation, targetRot, RotSpeed);
+        EnemySprite.rotation = rot;
 
 
-      
 
     }
 
