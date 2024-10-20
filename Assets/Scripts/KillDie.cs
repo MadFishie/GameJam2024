@@ -29,7 +29,7 @@ public class KillDie : MonoBehaviour
             }
         }
     }
-    private void Update()
+    private void FixedUpdate()
     {
         HitCheck = false;
     }
