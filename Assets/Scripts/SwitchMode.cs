@@ -21,7 +21,7 @@ public class SwitchMode : MonoBehaviour
     void Start()
     {
         AggressorCounter = Random.Range(MinRange, MaxRange);
-        Music.volume = .5f;
+        Music.volume = .65f;
         Music.pitch = .6f;
         Music.spatialBlend = .75f;
         StartCoroutine("AggressorCountDown");
@@ -43,7 +43,7 @@ public class SwitchMode : MonoBehaviour
                 if (AggressorTimeRunning == 0)
                 {
                     timerText.text = null;
-                    Music.volume = .5f;
+                    Music.volume = .65f;
                     Music.pitch = .6f;
                     Music.spatialBlend = .75f;
                     IsAggressor = false;
@@ -64,7 +64,7 @@ public class SwitchMode : MonoBehaviour
         TimerSpice = Random.Range(30, 75);
         AggressorTimeRunning = AggressorTimeStart * TimerSpice;
         Timer = AggressorTimeStart;
-        Music.volume = .75f;
+        Music.volume = 1;
         Music.pitch = 1.1f;
         Music.spatialBlend = 1f;
         StopAllCoroutines();
