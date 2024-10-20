@@ -15,6 +15,7 @@ public class PlayerMove : MonoBehaviour
     [Header("Reference Vals")]
     [SerializeField]BoxCollider2D HitDetect;
     [SerializeField] Transform playerSprite;
+    [SerializeField] float RotSpeed = 3f;
     
 
     void Start()
@@ -29,6 +30,13 @@ public class PlayerMove : MonoBehaviour
 
         var velUpdate = new Vector2(Input.GetAxisRaw("Horizontal") * speed, Input.GetAxisRaw("Vertical") * speed);
         rb.velocity = velUpdate;
+
+        if (velUpdate != Vector2.zero) 
+        {
+            Quaternion targetRot = Quaternion.LookRotation(transform.forward, velUpdate);
+            Quaternion rot = Quaternion.RotateTowards(transform.rotation, targetRot, RotSpeed);
+            playerSprite.rotation = rot;
+        }
 
 	}
 }

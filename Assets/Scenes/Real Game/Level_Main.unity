@@ -11641,6 +11641,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1923833508883678298, guid: b07da39418ded8a4192e89f430ce90ee, type: 3}
+      propertyPath: RotSpeed
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 2512771255520323223, guid: b07da39418ded8a4192e89f430ce90ee, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9999895
@@ -11708,6 +11712,26 @@ PrefabInstance:
     - target: {fileID: 7528722450473632472, guid: b07da39418ded8a4192e89f430ce90ee, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7991374332048430076, guid: b07da39418ded8a4192e89f430ce90ee, type: 3}
+      propertyPath: Music
+      value: 
+      objectReference: {fileID: 1464348430}
+    - target: {fileID: 7991374332048430076, guid: b07da39418ded8a4192e89f430ce90ee, type: 3}
+      propertyPath: MaxRange
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7991374332048430076, guid: b07da39418ded8a4192e89f430ce90ee, type: 3}
+      propertyPath: MinRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7991374332048430076, guid: b07da39418ded8a4192e89f430ce90ee, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 152340115}
+    - target: {fileID: 7991374332048430076, guid: b07da39418ded8a4192e89f430ce90ee, type: 3}
+      propertyPath: AggressorTimeStart
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8407823040063274080, guid: b07da39418ded8a4192e89f430ce90ee, type: 3}
       propertyPath: m_LocalRotation.w
