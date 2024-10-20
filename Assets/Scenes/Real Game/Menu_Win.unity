@@ -596,7 +596,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1318239093}
   - component: {fileID: 1318239092}
-  - component: {fileID: 1318239091}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -604,14 +603,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1318239091
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1318239090}
-  m_Enabled: 1
 --- !u!82 &1318239092
 AudioSource:
   m_ObjectHideFlags: 0

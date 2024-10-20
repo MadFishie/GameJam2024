@@ -15,10 +15,12 @@ public class KillDie : MonoBehaviour
     {
         if (collision.tag == "Enemy" && HitCheck == false)
         {
+            HitCheck = true;
             if (SwitchMode.IsAggressor == true)
             {
                 Destroy(collision.gameObject);
                 EnemyCount -= 1;
+                Debug.Log(EnemyCount);
             }
             else
             {
@@ -29,6 +31,6 @@ public class KillDie : MonoBehaviour
     }
     private void Update()
     {
-        HitCheck
+        HitCheck = false;
     }
 }
