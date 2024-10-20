@@ -278,6 +278,7 @@ GameObject:
   - component: {fileID: 1082141559826331768}
   - component: {fileID: 3465308641779084820}
   - component: {fileID: 3290645130926105850}
+  - component: {fileID: 3758426234136698482}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -464,6 +465,27 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7528722450473632472}
   m_Enabled: 1
+--- !u!95 &3758426234136698482
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7528722450473632472}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4420c112124148b4887c4b80ec894a1f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7651224989436179431
 GameObject:
   m_ObjectHideFlags: 0
