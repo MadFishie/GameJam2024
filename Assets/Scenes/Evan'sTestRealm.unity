@@ -6823,7 +6823,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 3.72
 --- !u!114 &2057007782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6839,7 +6839,7 @@ MonoBehaviour:
   light: {fileID: 432323578}
   script: {fileID: 1368445047}
   Player: {fileID: 327318981}
-  targetTime: 5
+  targetTime: 3
 --- !u!1 &2138250449
 GameObject:
   m_ObjectHideFlags: 0
@@ -7022,16 +7022,28 @@ PrefabInstance:
       value: PowerUp
       objectReference: {fileID: 0}
     - target: {fileID: 7893715689973915657, guid: 8380b34d027287b488ef57e9b56cdaa4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 15a15378f9186664381d25935db02bd0, type: 3}
+    - target: {fileID: 7893715689973915657, guid: 8380b34d027287b488ef57e9b56cdaa4, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8152015883128125639, guid: 8380b34d027287b488ef57e9b56cdaa4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.07113355
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152015883128125639, guid: 8380b34d027287b488ef57e9b56cdaa4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.06168
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152015883128125639, guid: 8380b34d027287b488ef57e9b56cdaa4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.868
+      value: -1.9
       objectReference: {fileID: 0}
     - target: {fileID: 8152015883128125639, guid: 8380b34d027287b488ef57e9b56cdaa4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5572233
+      value: 1.38
       objectReference: {fileID: 0}
     - target: {fileID: 8152015883128125639, guid: 8380b34d027287b488ef57e9b56cdaa4, type: 3}
       propertyPath: m_LocalPosition.z
