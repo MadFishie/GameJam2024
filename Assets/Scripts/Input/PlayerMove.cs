@@ -29,11 +29,6 @@ public class PlayerMove : MonoBehaviour
 
         var velUpdate = new Vector2(Input.GetAxisRaw("Horizontal") * speed, Input.GetAxisRaw("Vertical") * speed);
         rb.velocity = velUpdate;
-        if (velUpdate == Vector2.zero) {return; }
-		// Multiplies by the current scale to prevent it from reseting to 1,1
-		// Currently 0.1f
-		playerSprite.localScale=new Vector3(
-			Mathf.Sign(velUpdate.x) * playerSprite.localScale.x,
-			Mathf.Sign(velUpdate.y) * playerSprite.localScale.y);
+
 	}
 }
