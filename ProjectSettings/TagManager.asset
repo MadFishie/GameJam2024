@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - PowerUp
   - EnemyPoints
+  - Spikes
   layers:
   - Default
   - TransparentFX
