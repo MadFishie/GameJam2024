@@ -32,8 +32,8 @@ public class PowerUpScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        circleCollider = GetComponent<CircleCollider2D>();
-        light = GameObject.Find("FunnyLight").GetComponent<Light2D>();
+        //circleCollider = GetComponent<CircleCollider2D>();
+        //light = GameObject.Find("FunnyLight").GetComponent<Light2D>();
       
     }
 
@@ -47,11 +47,9 @@ public class PowerUpScript : MonoBehaviour
         }
         if (realTime >= targetTime)
         {
-            
             RemoveBuff();
 
         }
-        Debug.Log(light == null);
     }
 
 
@@ -60,11 +58,7 @@ public class PowerUpScript : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            RandomPower = (PowerBuffs) Random.RandomRange(1,3);
             Debug.Log("PlayerHit");
-            Debug.Log(RandomPower);
-        }
-        if(RandomPower == PowerBuffs.BUFF_SPEED) {
             script.speed = 7.0f;
             countTime = true;
         }
@@ -86,10 +80,10 @@ public class PowerUpScript : MonoBehaviour
     void RemoveBuff()
     {
         script.speed = 4.0f;
-        circleCollider.enabled = true;
+        //circleCollider.enabled = true;
         countTime = false;
-        light.pointLightInnerRadius = 1.0f;
-        light.pointLightOuterRadius = 5.0f;
+       // light.pointLightInnerRadius = 1.0f;
+        //light.pointLightOuterRadius = 5.0f;
         
 
 
