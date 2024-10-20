@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
+using UnityEngine.Rendering.Universal;
 
 public class PowerUpScript : MonoBehaviour
 
 {
-
     CircleCollider2D circleCollider;
+    [SerializeField] Light2D light;
     enum PowerBuffs
     {
         BUFF_SPEED,
 
-        BUFF_INVINC
+        BUFF_INVINC,
+
+        BUFF_SEE,
     }
     public PlayerMove script;
 
@@ -20,8 +22,9 @@ public class PowerUpScript : MonoBehaviour
 
     public GameObject Player;
 
+
     bool countTime = false;
-    public float targetTime = 5.0f;
+    public float targetTime = 3.0f;
     
     float realTime = 0.0f;
 
@@ -30,6 +33,7 @@ public class PowerUpScript : MonoBehaviour
     void Start()
     {
         circleCollider = GetComponent<CircleCollider2D>();
+        light = GameObject.Find("FunnyLight").GetComponent<Light2D>();
       
     }
 
@@ -43,8 +47,11 @@ public class PowerUpScript : MonoBehaviour
         }
         if (realTime >= targetTime)
         {
+            
             RemoveBuff();
+
         }
+        Debug.Log(light == null);
     }
 
 
@@ -53,23 +60,37 @@ public class PowerUpScript : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            RandomPower = (PowerBuffs) Random.RandomRange(0,1);
+            RandomPower = (PowerBuffs) Random.RandomRange(1,3);
             Debug.Log("PlayerHit");
             Debug.Log(RandomPower);
         }
         if(RandomPower == PowerBuffs.BUFF_SPEED) {
-            script.speed = 10f;
+            script.speed = 7.0f;
+            countTime = true;
         }
         if(RandomPower == PowerBuffs.BUFF_INVINC)
         {
             circleCollider.enabled = false;
+            countTime = true;
         }
+
+        if(RandomPower == PowerBuffs.BUFF_SEE)
+        {
+            light.pointLightInnerRadius = 5.0f;
+            light.pointLightOuterRadius = 10.0f;
+            countTime = true;
+        }
+        Destroy (gameObject);
     }
 
     void RemoveBuff()
     {
-        script.speed = 5.0f;
+        script.speed = 4.0f;
         circleCollider.enabled = true;
+        countTime = false;
+        light.pointLightInnerRadius = 1.0f;
+        light.pointLightOuterRadius = 5.0f;
+        
 
 
 
