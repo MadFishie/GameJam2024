@@ -5,16 +5,13 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyBehaivor : MonoBehaviour
 {
-    enum enemyState {Chase,Scatter,Frighten };
+    enum enemyState {Chase,Scatter};
 
     
     Transform Player;
     NavMeshAgent agent;
     List<Vector2> EnemyPoints = new List<Vector2>();
     [SerializeField] enemyState currentState;
-
-    float IntrestTimer=0;
-    [SerializeField] float timeIntrested = 2f;
 
     float StateTimer = 0;
     [SerializeField] float cycleCount=.4f;
@@ -45,7 +42,6 @@ public class EnemyBehaivor : MonoBehaviour
 
         PlayerControlState();
 
-        if (currentState == enemyState.Frighten) { return; }
 
         StateTimer += Time.deltaTime;
         if (StateTimer >= cycleCount) 
@@ -71,15 +67,12 @@ public class EnemyBehaivor : MonoBehaviour
             case enemyState.Scatter:
                 ScatterPlayer();
                 break;
-            case enemyState.Frighten:
-                FrightenPlayer();
-                break;
-
         }
     }
 
     private void ChasePlayer() 
     {
+        //Add Player Offset to stop clumping
         agent.SetDestination(Player.position);
         scatterCurrentEndPoint = EnemyPoints[Random.Range(0, EnemyPoints.Count - 1)];
     }
@@ -96,10 +89,7 @@ public class EnemyBehaivor : MonoBehaviour
     
     }
 
-    private void FrightenPlayer() 
-    {
-    
-    }
+   
 
 
 

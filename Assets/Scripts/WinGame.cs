@@ -29,7 +29,7 @@ public class WinGame : MonoBehaviour
     {
         if (collision.tag == "Player" && CanWin == true)
         {
-            //put win scene loader here!
+            SceneLoader.loadScenebyName("Menu_Win");
         }
     }
 }

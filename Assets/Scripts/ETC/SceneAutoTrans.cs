@@ -5,6 +5,7 @@ using UnityEngine;
 public class SceneAutoTrans : MonoBehaviour
 {
     [SerializeField] float Wait = 1f;
+    [SerializeField] string SceneName;
 
     void Start()
     {
@@ -14,7 +15,7 @@ public class SceneAutoTrans : MonoBehaviour
     IEnumerator ChangeToMenuAfterTime() 
     {
         yield return new WaitForSeconds(Wait);
-        SceneLoader.loadScenebyName("MainMenu");
+        SceneLoader.loadScenebyName(SceneName);
     }
 
 

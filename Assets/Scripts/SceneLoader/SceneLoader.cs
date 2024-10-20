@@ -10,9 +10,9 @@ public class SceneLoader : MonoBehaviour
 
     public static SceneLoader current;
 
-    private void Start()
+    private void Awake()
     {
-        current = this;
+        if (PersistantObj.Current == null) { current = this; }
     }
 
 
@@ -30,6 +30,12 @@ public class SceneLoader : MonoBehaviour
     {
         if (current.loading == false) { current.StartCoroutine(current.LoadSceneByName(0.5f, name)); }
         
+    }
+
+    public static void QuitGameWithFade(float delay)
+    {
+        if (current.loading == false) { current.StartCoroutine(current.QuitGameFade(delay)); }
+
     }
 
 
@@ -77,6 +83,13 @@ public class SceneLoader : MonoBehaviour
         yield return SceneManager.LoadSceneAsync(name);
         yield return FadeSceneOut(delay);
         loading = false;
+    }
+
+    IEnumerator QuitGameFade(float delay)
+    {
+        loading = true;
+        yield return FadeSceneIn(delay);
+        Application.Quit();
     }
 
 

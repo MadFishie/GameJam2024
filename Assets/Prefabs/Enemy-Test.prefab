@@ -217,5 +217,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  timeIntrested: 2
-  cycleCount: 1
+  cycleCount: 4
