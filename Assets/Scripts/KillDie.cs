@@ -5,6 +5,7 @@ using UnityEngine;
 public class KillDie : MonoBehaviour
 { 
     public static int EnemyCount;
+    private bool HitCheck = false;
     [SerializeField] private int EnemyCountSetup;
     private void Awake()
     {
@@ -12,7 +13,7 @@ public class KillDie : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        if (collision.tag == "Enemy" && HitCheck == false)
         {
             if (SwitchMode.IsAggressor == true)
             {
@@ -22,8 +23,12 @@ public class KillDie : MonoBehaviour
             else
             {
                 //Debug.Log("Died");
-                //put scene loader lose here!
+                SceneLoader.loadScenebyName("Menu_Lose");
             }
         }
+    }
+    private void Update()
+    {
+        HitCheck
     }
 }
