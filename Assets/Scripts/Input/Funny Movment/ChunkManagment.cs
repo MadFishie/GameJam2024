@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChunkManagment : MonoBehaviour
 {
-    [SerializeField]public List<Chunk> chunks=new List<Chunk>();
+  public List<Chunk> chunks=new List<Chunk>();
 
 
     void Start()
@@ -13,7 +13,7 @@ public class ChunkManagment : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         UpdateChunksLoaded();
     }

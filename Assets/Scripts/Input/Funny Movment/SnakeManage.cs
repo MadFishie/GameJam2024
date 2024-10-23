@@ -30,7 +30,8 @@ public class SnakeManage : MonoBehaviour
 
     void SnakeMovment() 
     {
-        snakeBody[0].GetComponent<Rigidbody2D>().velocity = snakeBody[0].transform.right*speed*Time.deltaTime;
+        
+        snakeBody[0].GetComponent<Rigidbody2D>().velocity = snakeBody[0].transform.right*speed;
         if (Input.GetAxis("Horizontal") != 0) 
         {
             snakeBody[0].transform.Rotate(new Vector3 (0,0,-turnSpeed*Time.deltaTime*Input.GetAxis("Horizontal")));
@@ -38,7 +39,7 @@ public class SnakeManage : MonoBehaviour
 
         if (snakeBody.Count > 1) 
         {
-            for (int i = 0; i < snakeBody.Count; i++) 
+            for (int i = 1; i < snakeBody.Count; i++) 
             {
                 ChunkManagment chunkM = snakeBody[i-1].GetComponent<ChunkManagment>();
                 snakeBody[i].transform.position=chunkM.chunks[0].position;
@@ -55,18 +56,28 @@ public class SnakeManage : MonoBehaviour
     {
         if (snakeBody.Count == 0) 
         {
-            GameObject temp1= Instantiate(bodyParts[0],transform.position,transform.rotation,transform);
-            if (!temp1.GetComponent<ChunkManagment>()) { temp1.AddComponent<ChunkManagment>(); }
-            if (!temp1.GetComponent<Rigidbody2D>())
+    
+            GameObject temp1 = Instantiate(bodyParts[0],transform.position,transform.rotation,transform);
+            if(!temp1.GetComponent<Rigidbody2D>())
+                temp1.AddComponent<Rigidbody2D>();
+
+            if (!temp1.GetComponent<Rigidbody2D>()) 
             {
                 temp1.AddComponent<Rigidbody2D>();
                 temp1.GetComponent<Rigidbody2D>().gravityScale = 0;
             }
             snakeBody.Add(temp1);
             bodyParts.RemoveAt(0);
+
+
         }
+
+
+    
         
-        ChunkManagment chunkM= snakeBody[snakeBody.Count-1].GetComponent<ChunkManagment>();
+        ChunkManagment chunkM = snakeBody[snakeBody.Count-1].GetComponent<ChunkManagment>();
+
+        countUp += Time.deltaTime;
         if (countUp == 0) 
         {
             chunkM.ClearChunksLoaded();
@@ -76,12 +87,15 @@ public class SnakeManage : MonoBehaviour
         if (countUp>=distBetween) 
         {
             GameObject temp = Instantiate(bodyParts[0], transform.position, transform.rotation, transform);
+
             if (!temp.GetComponent<ChunkManagment>()) { temp.AddComponent<ChunkManagment>(); }
+
             if (!temp.GetComponent<Rigidbody2D>())
             {
                 temp.AddComponent<Rigidbody2D>();
                 temp.GetComponent<Rigidbody2D>().gravityScale = 0;
             }
+
             snakeBody.Add(temp);
             bodyParts.RemoveAt(0);
             temp.GetComponent<ChunkManagment>().ClearChunksLoaded();
